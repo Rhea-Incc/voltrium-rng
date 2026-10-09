@@ -4,7 +4,7 @@ export function Energy() {
   return (
     <section className="relative overflow-hidden border-b border-light-foreground/10 bg-light text-light-foreground">
       <div className="grid-lines-light pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-36">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:px-10 md:py-36">
         <Reveal className="label-tech text-light-foreground/55">06 — Built around the route</Reveal>
         <Reveal delay={60} as="h2" className="display-lg mt-8">
           Power the corridor.

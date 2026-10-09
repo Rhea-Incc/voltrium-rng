@@ -7,7 +7,7 @@ export function Ecosystem() {
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-32">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:px-10 md:py-32">
         <Reveal className="label-tech">10 — Ecosystem</Reveal>
         <Reveal delay={60} as="h2" className="display-md mt-8 max-w-3xl">
           Powering the transition is more than charging.

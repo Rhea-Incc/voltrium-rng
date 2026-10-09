@@ -1,4 +1,15 @@
+import { CITY, type CityName, KENYA_PATH, KENYA_VIEWBOX } from "./kenyaMap";
 import { Reveal } from "./Reveal";
+
+const primaryCities: CityName[] = ["Nairobi", "Emali", "Mtito Andei", "Voi", "Mombasa"];
+const primary = primaryCities.map((c) => CITY[c].join(",")).join(" ");
+const secondaryCities: CityName[] = ["Nakuru", "Eldoret", "Kisumu", "Malaba", "Namanga"];
+const futureLines: CityName[][] = [
+  ["Nairobi", "Nakuru", "Eldoret"],
+  ["Nakuru", "Kisumu"],
+  ["Eldoret", "Malaba"],
+  ["Nairobi", "Namanga"],
+];
 
 const future = [
   "Nairobi ↔ Nakuru ↔ Eldoret",
@@ -11,7 +22,7 @@ export function Corridor() {
   return (
     <section id="network" className="relative overflow-hidden border-b border-border bg-surface">
       <div className="grid-lines-fine pointer-events-none absolute inset-0 opacity-60" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-36">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:px-10 md:py-36">
         <Reveal className="label-tech">07 — First corridor</Reveal>
         <Reveal delay={60} as="h2" className="display-lg mt-8 max-w-4xl">
           Start with the routes
@@ -47,60 +58,40 @@ export function Corridor() {
             </div>
           </Reveal>
 
-          <Reveal delay={150} className="min-w-0 border border-border p-6 md:p-10">
+          <Reveal delay={150} className="min-w-0 border border-border p-4 sm:p-6 md:p-10">
             <svg
-              viewBox="0 0 480 520"
-              className="w-full"
+              viewBox={KENYA_VIEWBOX}
+              className="mx-auto w-full max-w-[520px]"
               role="img"
-              aria-label="Stylised map of Kenya showing the initial Nairobi to Mombasa corridor and illustrative future corridors"
+              aria-label="Map of Kenya showing the initial Nairobi to Mombasa corridor and illustrative future corridors"
             >
-              {/* stylised country outline */}
-              <path
-                d="M70 120 L150 60 L250 70 L330 40 L420 130 L400 240 L330 330 L300 430 L220 470 L150 400 L90 330 L60 230 Z"
-                fill="none"
-                stroke="var(--color-border-strong)"
-                strokeWidth="1.5"
-              />
-              {/* future corridors, subtle */}
-              <g stroke="var(--color-border-strong)" strokeWidth="1" strokeDasharray="3 6" fill="none">
-                <path d="M210 250 L130 175" />
-                <path d="M210 250 L95 205" />
-                <path d="M210 250 L118 130" />
-                <path d="M210 250 L170 360" />
+              <path d={KENYA_PATH} fill="var(--color-background)" fillOpacity="0.5" stroke="var(--color-border-strong)" strokeWidth="1.5" strokeLinejoin="round" />
+              <g stroke="var(--color-muted-foreground)" strokeOpacity="0.55" strokeWidth="1.25" strokeDasharray="3 6" fill="none">
+                {futureLines.map((l) => (
+                  <polyline key={l.join()} points={l.map((c) => CITY[c].join(",")).join(" ")} />
+                ))}
               </g>
-              {/* primary corridor */}
-              <path
-                d="M210 250 C 250 300 250 360 300 430"
-                fill="none"
-                stroke="var(--color-primary)"
-                strokeWidth="3"
-              />
-              <path
-                d="M210 250 C 250 300 250 360 300 430"
-                fill="none"
-                stroke="var(--color-primary)"
-                strokeWidth="3"
-                className="flow-line"
-                opacity="0.6"
-              />
-              {[
-                [210, 250],
-                [243, 320],
-                [266, 378],
-                [300, 430],
-              ].map(([x, y]) => (
-                <g key={`${x}-${y}`}>
-                  <circle cx={x} cy={y} r="12" fill="var(--color-primary)" opacity="0.18" className="node-pulse" />
-                  <circle cx={x} cy={y} r="5" fill="var(--color-primary)" />
+              <polyline points={primary} fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinejoin="round" />
+              <polyline points={primary} fill="none" stroke="var(--color-primary)" strokeWidth="3" className="flow-line" opacity="0.6" />
+              {secondaryCities.map((c) => (
+                <circle key={c} cx={CITY[c][0]} cy={CITY[c][1]} r="3.5" fill="var(--color-muted-foreground)" />
+              ))}
+              {primaryCities.map((c) => (
+                <g key={c}>
+                  <circle cx={CITY[c][0]} cy={CITY[c][1]} r="12" fill="var(--color-primary)" opacity="0.18" className="node-pulse" />
+                  <circle cx={CITY[c][0]} cy={CITY[c][1]} r="5" fill="var(--color-primary)" />
                 </g>
               ))}
-              <g className="font-mono" fontSize="12" letterSpacing="2.5" fill="var(--color-foreground)">
-                <text x="150" y="238">
-                  NAIROBI
-                </text>
-                <text x="316" y="436">
-                  MOMBASA
-                </text>
+              <g className="font-mono" fontSize="12" letterSpacing="2" fill="var(--color-foreground)">
+                <text x={CITY.Nairobi[0] + 12} y={CITY.Nairobi[1] - 8}>NAIROBI</text>
+                <text x={CITY.Mombasa[0] - 82} y={CITY.Mombasa[1] + 22}>MOMBASA</text>
+              </g>
+              <g className="font-mono" fontSize="10" letterSpacing="1.5" fill="var(--color-muted-foreground)">
+                <text x={CITY.Nakuru[0] + 8} y={CITY.Nakuru[1] - 6}>NAKURU</text>
+                <text x={CITY.Eldoret[0] + 8} y={CITY.Eldoret[1] - 6}>ELDORET</text>
+                <text x={CITY.Kisumu[0] + 6} y={CITY.Kisumu[1] + 16}>KISUMU</text>
+                <text x={CITY.Malaba[0] - 4} y={CITY.Malaba[1] - 10}>MALABA</text>
+                <text x={CITY.Namanga[0] - 70} y={CITY.Namanga[1] + 4}>NAMANGA</text>
               </g>
             </svg>
           </Reveal>

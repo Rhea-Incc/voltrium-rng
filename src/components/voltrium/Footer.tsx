@@ -2,17 +2,17 @@ import { Logo } from "./Logo";
 import { mailto } from "./config";
 
 const links = [
-  { label: "Network", href: "#network" },
-  { label: "Infrastructure", href: "#infrastructure" },
-  { label: "Operators", href: "#operators" },
-  { label: "Partners", href: "#contact" },
+  { label: "Network", href: "/#network" },
+  { label: "Infrastructure", href: "/#infrastructure" },
+  { label: "Operators", href: "/#operators" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden">
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-16 md:px-10 md:py-20">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-16 sm:px-8 md:px-10 md:py-20">
         <div className="grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
             <Logo />

@@ -33,7 +33,7 @@ export function ElectricHighway() {
         className="pointer-events-none absolute right-0 top-1/4 size-[520px] rounded-full opacity-20 blur-[150px]"
         style={{ background: "var(--color-primary-dim)" }}
       />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-40">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:px-10 md:py-40">
         <Reveal className="label-tech">04 — The electric highway</Reveal>
         <Reveal delay={60} as="h2" className="display-lg mt-8 max-w-4xl">
           The road becomes
