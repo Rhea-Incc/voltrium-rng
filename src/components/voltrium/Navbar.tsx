@@ -6,10 +6,11 @@ import { mailto } from "./config";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { label: "Network", href: "#network" },
-  { label: "Infrastructure", href: "#infrastructure" },
-  { label: "Operators", href: "#operators" },
-  { label: "About", href: "#about" },
+  { label: "Network", href: "/#network" },
+  { label: "Infrastructure", href: "/#infrastructure" },
+  { label: "Operators", href: "/#operators" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -31,7 +32,7 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-5 md:h-20 md:px-10">
-        <a href="#top" aria-label="Voltrium home" className="flex items-center">
+        <a href="/" aria-label="Voltrium home" className="flex items-center">
           <Logo />
         </a>
 
@@ -46,7 +47,7 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href={mailto("Partner with Voltrium")}
+            href="/contact"
             className="label-tech-primary border border-primary/50 px-5 py-3 transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             Partner with us
@@ -78,7 +79,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href={mailto("Partner with Voltrium")}
+              href="/contact"
               onClick={() => setOpen(false)}
               className="label-tech-primary mt-5 border border-primary/50 py-4 text-center"
             >

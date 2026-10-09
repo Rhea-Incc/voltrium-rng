@@ -2,10 +2,10 @@ import { Logo } from "./Logo";
 import { mailto } from "./config";
 
 const links = [
-  { label: "Network", href: "#network" },
-  { label: "Infrastructure", href: "#infrastructure" },
-  { label: "Operators", href: "#operators" },
-  { label: "Partners", href: "#contact" },
+  { label: "Network", href: "/#network" },
+  { label: "Infrastructure", href: "/#infrastructure" },
+  { label: "Operators", href: "/#operators" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Footer() {
