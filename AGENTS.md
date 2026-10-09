@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Shared brand imagery uses Lovable Assets pointers in the Logo and Hero components so uploaded media stays off the source tree and appears consistently across pages.

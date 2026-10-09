@@ -1,5 +1,6 @@
 import { mailto } from "./config";
 import { Reveal } from "./Reveal";
+import banner from "@/assets/voltrium-banner.png.asset.json";
 
 function CorridorGraphic() {
   return (
@@ -94,14 +95,17 @@ function CorridorGraphic() {
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b border-border pt-28 md:pt-36">
-      <div className="grid-lines-fine pointer-events-none absolute inset-0 opacity-70" />
-      <div
-        className="pointer-events-none absolute -left-40 top-1/3 size-[620px] rounded-full opacity-25 blur-[140px]"
-        style={{ background: "var(--color-primary-dim)" }}
+    <section id="top" className="relative overflow-hidden border-b border-border pt-16 md:pt-20">
+      <img
+        src={banner.url}
+        alt="Voltrium — Powering the electric road. Illustrated electric coaches, charging hubs and connected energy infrastructure."
+        width={1920}
+        height={640}
+        fetchPriority="high"
+        className="block h-auto w-full"
       />
 
-      <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
+      <div className="relative mx-auto max-w-[1400px] px-5 pt-12 md:px-10 md:pt-16">
         <Reveal className="label-tech-primary flex items-center gap-3">
           <span className="inline-block h-px w-10 bg-primary" />
           Charging network operator · Kenya · East Africa
