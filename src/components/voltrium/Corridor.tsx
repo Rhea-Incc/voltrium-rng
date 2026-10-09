@@ -1,10 +1,10 @@
-import { CITY, KENYA_PATH, KENYA_VIEWBOX } from "./kenyaMap";
+import { CITY, type CityName, KENYA_PATH, KENYA_VIEWBOX } from "./kenyaMap";
 import { Reveal } from "./Reveal";
 
-const primaryCities = ["Nairobi", "Emali", "Mtito Andei", "Voi", "Mombasa"];
+const primaryCities: CityName[] = ["Nairobi", "Emali", "Mtito Andei", "Voi", "Mombasa"];
 const primary = primaryCities.map((c) => CITY[c].join(",")).join(" ");
-const secondaryCities = ["Nakuru", "Eldoret", "Kisumu", "Malaba", "Namanga"];
-const futureLines = [
+const secondaryCities: CityName[] = ["Nakuru", "Eldoret", "Kisumu", "Malaba", "Namanga"];
+const futureLines: CityName[][] = [
   ["Nairobi", "Nakuru", "Eldoret"],
   ["Nakuru", "Kisumu"],
   ["Eldoret", "Malaba"],
