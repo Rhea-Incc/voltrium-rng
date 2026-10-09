@@ -12,7 +12,7 @@ export function CTA({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" }) {
       />
       <div className="relative mx-auto grid max-w-[1400px] gap-14 px-5 py-24 sm:px-8 md:px-10 md:py-36 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div className="min-w-0">
-          <Reveal as={headingLevel} className="display-xl">
+          <Reveal as={headingLevel} className="display-xl break-words lg:text-[clamp(3rem,5.4vw,5.5rem)]">
             The electric highway
             <br />
             <span className="text-primary text-glow">starts here.</span>
