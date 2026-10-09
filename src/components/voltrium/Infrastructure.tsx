@@ -18,7 +18,7 @@ export function Infrastructure() {
   return (
     <section id="infrastructure" className="relative overflow-hidden border-b border-border">
       <div className="grid-lines pointer-events-none absolute inset-0 opacity-40" />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:px-10 md:py-36">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-24 sm:px-8 md:px-10 md:py-36">
         <Reveal className="label-tech">05 — What we build</Reveal>
         <Reveal delay={60} as="h2" className="display-lg mt-8">
           More than a <span className="text-primary">charger.</span>

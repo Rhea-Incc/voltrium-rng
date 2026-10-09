@@ -2,7 +2,6 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Logo } from "./Logo";
-import { mailto } from "./config";
 import { cn } from "@/lib/utils";
 
 const links = [
